@@ -34,7 +34,10 @@ The Custom Label should be provided for this one.
 
 ## Screenshots
 
-Configuration in Flow, configuring input and output variables
+Configuration in Flow, configuring input and output variables.
+* The input in the screenshot is purely for documentation purposes to show the correct format.
+* NEVER put hard-coded (RecordType) Ids, always retrieve dynamically from a record {!sObj_Account.RecordTypeId} or from server {!Get_RetrieveRecordType.Id}.
+
 ![Initial screen](screenshots/RecordTypePicklistValueSelector_FlowConfig.png)
 
 Example of Industry picklist value for Business Accounts
