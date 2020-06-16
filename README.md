@@ -7,7 +7,7 @@ Allowing distinction in business processes and guiding an end-user through that 
 
 Unfortunately, those restrictions aren't always satisfied by Salesforce, e.g. in:
 
-* Dynamic Picklist Choices in Lightning Flows
+* Dynamic Picklist Choices in Lightning Flows ([SF Idea](https://success.salesforce.com/ideaView?id=08730000000cFUuAAM))
 
 ## Solution
 This Lightning Web Component retrieves and displays the picklist values which are valid for the provided RecordTypeId,
@@ -22,9 +22,11 @@ The Custom Label should be provided for this one.
 
 | Variable | Description |
 | --- | --- |
-| ObjectName | API name of Object |
-| FieldName | API name of the Picklist Field on the corresponding Object |
-| RecordTypeId | Id of RecordType to restrict the picklist values with (e.g. from current record, or retrieved to create new record ) |
+| objectName | API name of Object |
+| fieldName | API name of Picklist Field on corresponding Object |
+| recordTypeId | Id of RecordType to restrict picklist values with (e.g. retrieve from current record, or retrieved to create new record ) |
+| isRequired | Whether input field is required |
+| errorMessage | Error message to show in front-end when field required and not provided (e.g. retrieve from CustomLabel via Formula) |
 
 ### Output:
 
@@ -35,8 +37,9 @@ The Custom Label should be provided for this one.
 ## Screenshots
 
 Configuration in Flow, configuring input and output variables.
-* The input in the screenshot is purely for documentation purposes to show the correct format.
-* NEVER put hard-coded (RecordType) Ids, always retrieve dynamically from a record {!sObj_Account.RecordTypeId} or from server {!Get_RetrieveRecordType.Id}.
+* The input in the screenshot is purely for documentation purposes to show the correct format;
+* NEVER put hard-coded (RecordType) Ids, always retrieve dynamically from a record {!sObj_Account.RecordTypeId} or from server {!Get_RetrieveRecordType.Id};
+* Likewise it is recommended to fetch a CustomLabel in Flow and provide that into the component.
 
 ![Initial screen](screenshots/RecordTypePicklistValueSelector_FlowConfig.png)
 

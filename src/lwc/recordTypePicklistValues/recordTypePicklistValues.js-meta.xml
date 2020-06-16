@@ -14,10 +14,12 @@
             <property name="fieldName" type="String" label="Field to show picklist values for" required="true" />
         </targetConfig>
         <targetConfig targets="lightning__FlowScreen" >
-            <property name="objectName" type="String" label="Object Name" role="inputOnly" />
-            <property name="recordTypeId" type="String" label="RecordTypeId" role="inputOnly" />
-            <property name="fieldName" type="String" label="Field to show picklist values for" role="inputOnly" />
-            <property name="fieldValue" type="String" label="Selected value by user" />
+            <property name="objectName" type="String" label="1) Object API Name" role="inputOnly" />
+            <property name="fieldName" type="String" label="2) Picklist Field API Name" role="inputOnly" />
+            <property name="recordTypeId" type="String" label="3) RecordTypeId" role="inputOnly" description="Id of RecordType Id, fetch from record {!sObj_Account.RecordTypeId} or from Get {!Get_RecordType.Id}" />
+            <property name="isRequired" type="Boolean" label="4) Required input" role="inputOnly" default="false" />
+            <property name="errorMessage" type="String" label="5) Error message" role="inputOnly" description="Error message shown to customer when input required, but not populated" default="Please select a picklist value"/>
+            <property name="fieldValue" type="String" label="Selected value by user" description="The API value of the selected Picklist value" />
         </targetConfig>
     </targetConfigs>
     <masterLabel>RecordType Picklist Values</masterLabel>
