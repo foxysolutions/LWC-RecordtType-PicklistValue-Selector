@@ -8,6 +8,7 @@
 import { LightningElement, api } from 'lwc';
 
 export default class RecordType_PicklistValues extends LightningElement {
+    /* Required Attributes */
     // {String} API Name of Object
     @api objectName;
     // {String} API Name of Picklist value (for this specific Object)
@@ -15,17 +16,25 @@ export default class RecordType_PicklistValues extends LightningElement {
     // {String} Id of RecordType the picklist values should be restricted with
     @api recordTypeId;
 
+    /* Optional Attributes */
+    // {Boolean} Whether or not the input is required
+    @api isRequired;
+    // {String} Error message non selected
+    @api errorMessage;
+
+    /* Output Attributes */
     // {String} API value of selected picklist value (not the label, but the value)
     @api fieldValue;
 
     // {Validation} Function Lightning Flows execute on 'next'-button to validate whether component is valid
     @api validate() {
-        if( this.fieldValue && this.fieldValue.length > 0 ) {
+        if( !this.isRequired
+            || ( this.isRequired && this.fieldValue && this.fieldValue.length > 0 ) ){
             return { isValid: true };
         } else {
             return {
                 isValid: false,
-                errorMessage: 'Please select a picklist value' /** Move to custom label */
+                errorMessage: this.errorMessage
              };
          }
     }
