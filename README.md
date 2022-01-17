@@ -47,3 +47,10 @@ Example of Industry picklist value for Business Accounts
 ![Example with validation](screenshots/RecordTypePicklistValueSelector_FlowDebug_InclValidation.png)
 
 ![Restricted picklist values](screenshots/RecordTypePicklistValueSelector_RecordType.png)
+
+# Installation
+
+The LightningWebComponent has been made available as unmanaged package (see links below) (https://login.salesforce.com/packaging/installPackage.apexp?p0=04t08000000xAJR&isdtp=p1) or can be downloaded and Deployed to any Sandbox using SFDX CLI or an IDE.
+
+* [Install on Sandbox Org](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t08000000xAJR)
+* [Install on Production/Developer Org](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t08000000xAJR)
